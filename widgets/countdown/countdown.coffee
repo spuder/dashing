@@ -42,8 +42,11 @@ class Dashing.Countdown extends Dashing.Widget
   formatTime: (i) ->
     if i < 10 then "0" + i else i
 
-  onData: (data) ->
-	console.log 'herp'
-    # Handle incoming data
+ #  onData: (data) ->
+    # console.log 'herp'
+ #    # Handle incoming data
     # You can access the html node of this widget with `@node`
     # Example: $(@node).fadeOut().fadeIn() will make the node flash each time data comes in.
+
+  @accessor 'isAvailable', ->
+    @get('value') > 300
