@@ -1,5 +1,7 @@
 class Dashing.Countdown extends Dashing.Widget
- 
+
+  
+
   ready: ->
     setInterval(@startCountdown, 500)
  
@@ -7,6 +9,7 @@ class Dashing.Countdown extends Dashing.Widget
     current_timestamp 	= Math.round(new Date().getTime()/1000)
     end_timestamp 		= Math.round( Date.parse($(@node).find(".more-info").html())/1000 )
     seconds_until_end 	= end_timestamp - current_timestamp
+
 
     # if seconds_until_end < 3600
     #   $(@node).parent().remove()
@@ -27,11 +30,13 @@ class Dashing.Countdown extends Dashing.Widget
     #   else
     #     @set('timeleft', @formatTime(h) + ":" + @formatTime(m) + ":" + @formatTime(s))
 
-    if @get('value') > 300
-      @set('title', 'herpin the derpin')
+    if @get('title') > 'Busy'
+      # @set('title', 'herpin the derpin')
+      @set('isAvailable', true)
     else
-      @set('title', 'hur a whir')
-      
+      @set('isAvailable', false)
+
+
     d = Math.floor(seconds_until_end/86400)
     h = Math.floor((seconds_until_end-(d*86400))/3600)
     m = Math.floor((seconds_until_end-(d*86400)-(h*3600))/60)
@@ -47,7 +52,8 @@ class Dashing.Countdown extends Dashing.Widget
   formatTime: (i) ->
     if i < 10 then "0" + i else i
 
- #  onData: (data) ->
+  onData: (data) ->
+    $(@node).fadeOut().fadeIn()
     # console.log 'herp'
  #    # Handle incoming data
     # You can access the html node of this widget with `@node`
@@ -55,6 +61,5 @@ class Dashing.Countdown extends Dashing.Widget
 
   # Accesses the isAvailable class in the html
   # gets the value of 'value'. If over 300, then sets 'isAvailable' to true
-  @accessor 'isAvailable', ->
-    @get('value') > 300
-
+  # @accessor 'isAvailable', ->
+  #   @get('value') > 300
