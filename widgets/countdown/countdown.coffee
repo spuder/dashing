@@ -30,11 +30,16 @@ class Dashing.Countdown extends Dashing.Widget
     #   else
     #     @set('timeleft', @formatTime(h) + ":" + @formatTime(m) + ":" + @formatTime(s))
 
-    if @get('title') > 'Busy'
-      # @set('title', 'herpin the derpin')
+    if @get('title') > 'HERP'
+      console.log "title says " + @title
       @set('isAvailable', true)
+      @set('isBusy', false)
+    # else if @get('title') > 'derp'
+    #   @set('isAvailable', false)
     else
+      console.log "title says " + @title
       @set('isAvailable', false)
+      @set('isBusy', true)
 
 
     d = Math.floor(seconds_until_end/86400)

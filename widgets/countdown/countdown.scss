@@ -1,19 +1,22 @@
 // ----------------------------------------------------------------------------
 // Sass declarations
 // ----------------------------------------------------------------------------
-$background-color:  #dc5945;
+$light_red:  #dc5945;
+$light_blue:  #457ddc;
  
 // ----------------------------------------------------------------------------
 // Widget-clock styles
 // ----------------------------------------------------------------------------
 .widget-countdown {
- 
-  background-color: $background-color;
+
+  background-color: gray;
  
   h2 { font-size: 2em;}
  
   h1 { font-size: 2em;}
  
+
+
   .countdown-time {
     margin-top: 10px;
     color: yellow;
@@ -28,15 +31,14 @@ $background-color:  #dc5945;
     right: 0;
   }
 
-}
 
+}
 
 .available {
-	background-color: blue;
+  background-color: blue;
 }
 .busy {
-	background-color: yellow;
+  background-color: red;
 }
-.away {
-	background-color: purple;
-}
+
+
