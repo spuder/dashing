@@ -27,6 +27,11 @@ class Dashing.Countdown extends Dashing.Widget
     #   else
     #     @set('timeleft', @formatTime(h) + ":" + @formatTime(m) + ":" + @formatTime(s))
 
+    if @get('value') > 300
+      @set('title', 'herpin the derpin')
+    else
+      @set('title', 'hur a whir')
+      
     d = Math.floor(seconds_until_end/86400)
     h = Math.floor((seconds_until_end-(d*86400))/3600)
     m = Math.floor((seconds_until_end-(d*86400)-(h*3600))/60)
@@ -48,5 +53,8 @@ class Dashing.Countdown extends Dashing.Widget
     # You can access the html node of this widget with `@node`
     # Example: $(@node).fadeOut().fadeIn() will make the node flash each time data comes in.
 
+  # Accesses the isAvailable class in the html
+  # gets the value of 'value'. If over 300, then sets 'isAvailable' to true
   @accessor 'isAvailable', ->
     @get('value') > 300
+

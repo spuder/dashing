@@ -28,9 +28,15 @@ $background-color:  #dc5945;
     right: 0;
   }
 
-
 }
 
-.availability {
-  background-color: blue;
+
+.available {
+	background-color: blue;
+}
+.busy {
+	background-color: yellow;
+}
+.away {
+	background-color: purple;
 }
